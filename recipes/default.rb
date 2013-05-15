@@ -18,7 +18,7 @@
 #
 
 package "keepalived" do
-  action :install
+  action node["osops"]["do_package_upgrades"] == true ? :upgrade : :install
 end
 
 directory "/etc/keepalived/conf.d" do
